@@ -115,9 +115,29 @@ streamlit run app.py
 
 ---
 
+Troubleshooting
+Error: ValueError: With n_samples=0...
+This error occurs when the server_sync.py script fails to download any data from the external threat feeds (PhishTank or URLhaus). Since the training dataset is empty, the Random Forest model cannot be initialized.
+
+Solutions:
+
+Check Internet Connectivity: Ensure your server/workstation has outbound access to phishtank.com and abuse.ch.
+
+Manual Sync: Run the synchronization script manually to see the specific network error:
+
+Bash
+
+python server_sync.py
+Failsafe Mode: Sentinel Core v3.0 includes a built-in failsafe. If it cannot reach the internet, it will generate a baseline metadata footprint so the UI components remain functional.
+
+QR Scanner Not Working
+If the QR import fails, ensure your environment has opencv-python installed and the uploaded image has sufficient contrast. The system uses CLAHE (Contrast Limited Adaptive Histogram Equalization) to attempt recovery, but extremely blurry images may not decode.
+
 ## Disclaimer
 
 *This tool is intended for security research and infrastructure monitoring. Always ensure you have permission before scanning external network assets.*
+
+---
 
 **Author:** [Gerosi]
 
