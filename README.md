@@ -125,4 +125,3 @@ streamlit run app.py
 
 ---
 
-**Would you like me to add a "Troubleshooting" section specifically for the `ValueError: n_samples=0` error you encountered earlier?**
